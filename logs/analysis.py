@@ -1,7 +1,8 @@
-from operator import itemgetter, attrgetter, methodcaller
+from operator import itemgetter
 ##################################################
 ##################################################
 class new_file:
+    #initialise the file used and an empty array
     def __init__(self, file_path):
         self.datei = open(file_path,'r')
         self.array = []
@@ -11,7 +12,6 @@ class new_file:
 
     #returns number of times item appears in array
     def number_of(self, item):
-        #copy = self.array
         counter = 0
         while item in self.array:
             counter = counter+1
@@ -31,6 +31,7 @@ class new_file:
             except IndexError:
                 current = 'null';
 
+        # sort list in descending order by the number of presses
         letters = sorted(letters, key=itemgetter(1), reverse=True)
         return letters
 
@@ -38,9 +39,10 @@ class new_file:
 ##################################################
 ##################################################
 
-
+# open both files
 chars = new_file('chars_log.txt')
 words = new_file('words_log.txt')
+
 print('chars_log.txt:')
 print(chars.results())
 print('')
